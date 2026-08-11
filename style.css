@@ -285,57 +285,66 @@ body {
     white-space: pre-wrap; /* Keeps paragraph line breaks */
 }
 }
-/* =================================================================== */
-/* --- PORTRAIT MOBILE LAYOUT (Stacked vertically for phones) ---      */
-/* =================================================================== */
 
-@media (max-width: 768px) {
-    /* 1. Prevent the page from scrolling left or right */
-    html, body {
-        width: 100%;
-        overflow-x: hidden !important;
-        margin: 0;
-        padding: 10px;
-        box-sizing: border-box;
-    }
+/* ======================================================== */
+/* --- NEW: MOBILE RESPONSIVE LAYOUT (Phones & Tablets) ---  */
+/* ======================================================== */
 
-    /* 2. Stack everything cleanly in the center */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Make the game container relative so buttons can float inside it */
     .game-container {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        gap: 15px !important;
-        margin: 0 auto !important;
+        position: relative;
+        width: 650px;
+        height: 400px;
+        justify-content: center;
+        gap: 0;
+        
+        /* Automatically scales the 650px stage down slightly to fit narrow phone screens! */
+        max-width: 95vw;
+        transform: scale(0.85);
+        transform-origin: top center;
+        margin-bottom: -40px; /* Pulls the mail button up closer after scaling */
     }
 
-    /* 3. Force BOTH button panels to wrap and display below/above the stage */
-    .button-panel {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: center !important;
-        flex-wrap: wrap !important;
-        width: 100% !important;
-        gap: 10px !important;
+    /* 2. Float the LEFT button panel over the top-left edge of the background */
+    .game-container .button-panel:first-of-type {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        z-index: 50; /* Keeps buttons sitting above the character art */
     }
 
-    /* 4. Shrink the stage from 650px down to 320px so it fits phones */
-    .character-scene {
-        width: 320px !important;
-        height: 320px !important;
-        max-width: 100% !important;
-        flex-shrink: 0 !important;
-    }
-    .character-base,
-    .clothing {
-        width: 320px !important;
-        height: 320px !important;
+    /* 3. Float the RIGHT button panel over the top-right edge of the background */
+    .game-container .button-panel:last-of-type {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        z-index: 50; /* Keeps buttons sitting above the character art */
     }
 
-    /* 5. Hide side decorations on mobile */
+    /* 4. Hide the extra decorative side GIFs on mobile so buttons stay compact */
     .side-decor-img {
-        display: none !important;
+        display: none;
+    }
+
+    /* 5. Make sure the option menus pop up clearly above everything */
+    .options-menu {
+        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.95); /* Slightly solid white so art behind doesn't distract */
+    }
+
+    /* 6. Adjust the popup mailbox width so it fits nicely on a phone screen */
+    .modal-card {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+/* For very small/narrow phones (like iPhone SE or older Androids) */
+@media screen and (max-width: 480px) {
+    .game-container {
+        transform: scale(0.68); /* Scales down a bit more so nothing gets cut off */
+        margin-bottom: -90px;
     }
 }
