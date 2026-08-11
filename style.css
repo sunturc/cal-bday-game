@@ -114,8 +114,9 @@ body {
     width: 650px;
     height: 400px;
     background-image: url('scene-bg.png'); 
-    background-size: cover;
+    background-size: 115% 115%; 
     background-position: center;
+    transition: background-position 0.1s ease-out;
     border: 6px solid #333;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
@@ -287,66 +288,56 @@ body {
 }
 
 /* ======================================================== */
-/* --- NEW: MOBILE RESPONSIVE LAYOUT (Phones & Tablets) ---  */
+/* --- NEW: ENCHANTED DESERT WIND & SAND MOTES (No. 1) ---  */
 /* ======================================================== */
 
-
-@media screen and (max-width: 1024px) {
-    
-    /* 1. Turn OFF flexbox so buttons are free to float over the scene! */
-    .game-container {
-        display: block !important;
-        position: relative !important;
-        width: 650px !important;
-        height: 400px !important;
-        margin: 0 auto !important;
-        
-        /* Scales down the 650px stage automatically on small screens */
-        max-width: 95vw;
-        transform: scale(0.85);
-        transform-origin: top center;
-        margin-bottom: -40px !important;
-    }
-
-    /* 2. Float LEFT buttons over the top-left corner of the background */
-    #left-panel {
-        position: absolute !important;
-        left: 15px !important;
-        top: 15px !important;
-        z-index: 50 !important;
-        flex-direction: column !important;
-    }
-
-    /* 3. Float RIGHT buttons over the top-right corner of the background */
-    #right-panel {
-        position: absolute !important;
-        right: 15px !important;
-        top: 15px !important;
-        z-index: 50 !important;
-        flex-direction: column !important;
-    }
-
-    /* 4. Hide decorative side GIFs on phones so buttons stay clean */
-    .side-decor-img {
-        display: none !important;
-    }
-
-    /* 5. Make sure pop-up option menus appear above the character art */
-    .options-menu {
-        z-index: 100 !important;
-        background-color: rgba(255, 255, 255, 0.95);
-    }
-
-    .modal-card {
-        width: 90%;
-        padding: 15px;
-    }
+/* Container covers the scene but lets all clicks pass through to buttons/clothing */
+.wind-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5; /* Floats behind the character */
 }
 
-/* For very narrow phones */
-@media screen and (max-width: 480px) {
-    .game-container {
-        transform: scale(0.68);
-        margin-bottom: -90px !important;
+/* Base style for every glowing sand particle */
+.mote {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #ffffff 0%, #ffd700 60%, transparent 100%);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 8px #ffdf00;
+    animation: desertWind 7s infinite linear;
+}
+
+/* Different starting heights, sizes, and delays so they blow organically */
+.mote-1 { top: 20%; animation-delay: 0s;   animation-duration: 6s; }
+.mote-2 { top: 45%; animation-delay: 2s;   animation-duration: 8s; width: 4px; height: 4px; }
+.mote-3 { top: 70%; animation-delay: 4s;   animation-duration: 7s; }
+.mote-4 { top: 30%; animation-delay: 1.5s; animation-duration: 5.5s; width: 8px; height: 8px; }
+.mote-5 { top: 85%; animation-delay: 3.5s; animation-duration: 9s; width: 5px; height: 5px; }
+
+/* The wind animation: sweeps across the 650px box from left to right */
+@keyframes desertWind {
+    0% {
+        left: -20px;
+        opacity: 0;
+        transform: translateY(0px) scale(0.8);
+    }
+    20% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    100% {
+        left: 670px;
+        opacity: 0;
+        transform: translateY(-25px) scale(1.1); /* Slight upward lift as it blows */
     }
 }
