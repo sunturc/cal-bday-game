@@ -165,3 +165,21 @@ document.addEventListener('mousemove', function(event) {
         desertScene.style.backgroundPosition = `${moveX}% ${moveY}%`;
     }
 });
+
+// ================================================================
+// --- 4. INTERACTIVE HAPPY BOUNCE ON CLICK (No. 4) ---
+// ================================================================
+const characterBase = document.querySelector('.character-base');
+
+if (characterBase) {
+    // 1. When the character is clicked, add the 'bounce' animation class
+    characterBase.addEventListener('click', function() {
+        characterBase.classList.add('bounce');
+    });
+
+    // 2. When the jump animation finishes (0.5s later), remove the class 
+    //    so he can be clicked and bounce again anytime!
+    characterBase.addEventListener('animationend', function() {
+        characterBase.classList.remove('bounce');
+    });
+}
