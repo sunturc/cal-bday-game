@@ -37,15 +37,107 @@ JAYAAA JAYAAA JAYAAAA 🎉🎉🎉🎉`,
 // ================================================================
 
 
-// ==================== MUSIC AUTOPLAY WORKAROUND ====================
-const music = document.getElementById('birthdayMusic');
+// ================================================================
+// 🎵 MINI MUSIC PLAYER & PLAYLIST MANAGER 🎵
+// Add as many songs as you want to this list!
+// ================================================================
+const playlist = [
+    { title: "🎵 Silk & Cinder", file: "track1.mp3" },
+    { title: "🎵 Meshrabiya", file: "track2.mp3" },
+    { title: "🎵 Sirocco Nostalgia", file: "track3.mp3" }
+    { title: "🎵 Red Sand", file: "track4.mp3" }
+ { title: "🎵 Wadi Walk", file: "track5.mp3" }
+];
 
-function playMusic() {
-    music.play();
-    document.removeEventListener('click', playMusic);
+let currentTrackIndex = 0;
+let isPlaying = false;
+let isMuted = false;
+
+const music = document.getElementById('birthdayMusic');
+const trackTitleEl = document.getElementById('track-title');
+const btnPlay = document.getElementById('btn-play');
+const btnPrev = document.getElementById('btn-prev');
+const btnNext = document.getElementById('btn-next');
+const btnMute = document.getElementById('btn-mute');
+
+// 1. Load a track by its index in the playlist
+function loadTrack(index) {
+    currentTrackIndex = index;
+    music.src = playlist[currentTrackIndex].file;
+    trackTitleEl.innerText = playlist[currentTrackIndex].title;
 }
 
-document.addEventListener('click', playMusic);
+// 2. Play the current track
+function playTrack() {
+    music.play().then(() => {
+        isPlaying = true;
+        btnPlay.innerText = "⏸️";
+    }).catch(error => {
+        console.log("Waiting for user interaction to play audio...");
+    });
+}
+
+// 3. Pause the current track
+function pauseTrack() {
+    music.pause();
+    isPlaying = false;
+    btnPlay.innerText = "▶️";
+}
+
+// 4. Toggle Play/Pause Button
+btnPlay.addEventListener('click', function(e) {
+    e.stopPropagation(); // Prevents triggering document autoplay listener
+    if (isPlaying) {
+        pauseTrack();
+    } else {
+        playTrack();
+    }
+});
+
+// 5. Next Track Button
+function nextSong() {
+    currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+    loadTrack(currentTrackIndex);
+    if (isPlaying) playTrack();
+}
+btnNext.addEventListener('click', function(e) {
+    e.stopPropagation();
+    nextSong();
+});
+
+// 6. Previous Track Button
+btnPrev.addEventListener('click', function(e) {
+    e.stopPropagation();
+    currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+    loadTrack(currentTrackIndex);
+    if (isPlaying) playTrack();
+});
+
+// 7. Mute/Unmute Button
+btnMute.addEventListener('click', function(e) {
+    e.stopPropagation();
+    isMuted = !isMuted;
+    music.muted = isMuted;
+    btnMute.innerText = isMuted ? "🔇" : "🔊";
+});
+
+// 8. Automatically play the next song when the current one ends!
+music.addEventListener('ended', function() {
+    nextSong();
+});
+
+// 9. Load the first track immediately on page load
+loadTrack(0);
+
+// 10. Autoplay Workaround: Play on first click anywhere on the page
+function firstClickAutoplay() {
+    if (!isPlaying) {
+        playTrack();
+    }
+    document.removeEventListener('click', firstClickAutoplay);
+}
+document.addEventListener('click', firstClickAutoplay);
+// ===================================================================
 // ===================================================================
 
 
