@@ -286,34 +286,32 @@ body {
 }
 }
 /* =================================================================== */
-/* --- MOBILE-FRIENDLY MAGIC (PC version is 100% untouched!) ---       */
+/* --- PORTRAIT MOBILE LAYOUT (Stacked vertically for phones) ---      */
 /* =================================================================== */
 
 @media (max-width: 768px) {
-    /* Everything inside here ONLY activates on mobile screens! */
-
-    /* 1. Hide the large decorative side art on phones to save space */
+    /* 1. Hide the side decorative images so they don't take up vertical space */
     .side-decor-img {
         display: none;
     }
 
-    /* 2. Tighten the gap between the buttons and the character stage */
+    /* 2. Stack the entire game vertically: Left buttons, Stage, Right buttons */
     .game-container {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    /* 3. Turn the button panels into horizontal rows instead of vertical columns */
+    .button-panel {
+        flex-direction: row;
+        justify-content: center;
         gap: 10px;
-        padding: 0 5px;
+        flex-wrap: wrap;
+        width: 100%;
     }
 
-    /* 3. Make the category buttons slightly smaller for touchscreens */
-    .category-btn {
-        width: 48px;
-        height: 48px;
-    }
-    .category-btn img {
-        width: 42px;
-        height: 42px;
-    }
-
-    /* 4. Scale down the character stage and clothing layers proportionally */
+    /* 4. Scale down the character stage to fit comfortably on narrow phone screens */
     .character-scene {
         width: 320px;
         height: 320px;
@@ -325,23 +323,34 @@ body {
         height: 320px;
     }
 
-    /* 5. Ensure popup menus don't float too far away from the buttons */
-    .options-menu {
-        padding: 6px;
-        gap: 3px;
+    /* 5. Adjust the category buttons for mobile touch */
+    .category-btn {
+        width: 50px;
+        height: 50px;
     }
-    .small-btn {
-        width: 28px;
-        height: 28px;
+    .category-btn img {
+        width: 44px;
+        height: 44px;
     }
 
-    /* 6. Make the Birthday Mailbox modal fit neatly on phone screens */
+    /* 6. Fix popup menus so they open nicely below the buttons in portrait mode */
+    .options-menu {
+        position: fixed; /* Floats safely on top of the screen */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2000;
+        background: #fff;
+        border: 3px solid #333;
+    }
+
+    /* 7. Fit the Birthday Mail modal nicely on mobile */
     .modal-card {
-        width: 92%;
+        width: 90%;
         padding: 15px;
     }
     .mail-btn {
-        font-size: 14px;
-        padding: 10px 18px;
+        font-size: 15px;
+        padding: 10px 20px;
     }
 }
