@@ -144,3 +144,24 @@ setupCategory('pants');
 setupCategory('accessories');
 setupCategory('robe');
 setupCategory('shoes');
+
+// ================================================================
+// --- 3. 3D DESERT DUNE PARALLAX EFFECT (No. 5) ---
+// ================================================================
+const desertScene = document.getElementById('scene');
+
+document.addEventListener('mousemove', function(event) {
+    // 1. Calculate mouse position relative to the center of the window (-1 to +1)
+    const x = (event.clientX / window.innerWidth - 0.5) * 2;
+    const y = (event.clientY / window.innerHeight - 0.5) * 2;
+    
+    // 2. Shift the background image slightly opposite to the mouse direction
+    // Default center is 50% 50%. We shift it by up to +/- 4%
+    const moveX = 50 + (x * 4);
+    const moveY = 50 + (y * 4);
+    
+    // 3. Apply the new background position to the scene
+    if (desertScene) {
+        desertScene.style.backgroundPosition = `${moveX}% ${moveY}%`;
+    }
+});
