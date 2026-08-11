@@ -6,6 +6,7 @@
 const birthdayLetters = {
     "Irfan Suroso": "We may less hang out anymore, but we hope the gift we prepares for you are conveying how much we care about you, cheers, Happy fucking Birthday!",
     "mario": "kaya orang aja tir ulang taun. semoga selain bab, segala urusan yg lain bisa lancar. 🥰",
+    "Nina N Ningrum": "Selamat ulang tahun neng tir sehat selalu, selalu bahagia dalam keadaan apapun yaa, salam manis t'nina 🌸",
 "Askuzz": "Heppi besdey Tiaraaa. Semoga panjang umur dan sehat selaluu. Semoga babang Valko segera riliss! Dan Semoga semua-semua hal2 baik terjadi sepanjang tahun inii! Aku ingin towewew Valkoo 🫶✨️✨️",
 "njel": "MET ULTAH CAL, makasih udah ngajak main terus dan nemenin kehidupan per-game-an!! Semoga diberkahi umur panjang dan kondisi sehat senantiasa. Keep being everyone's friend!",
     "Bunga dan Randy": "Selamat Ulang Tahun! Semoga selalu diberikan yang Terbaik, berhasil move-on dari mantan gebetan, dan segera didatangi calon pacar yang bucin, introvert, pintar, dan tajir itu.",
