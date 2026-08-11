@@ -341,3 +341,25 @@ body {
         transform: translateY(-25px) scale(1.1); /* Slight upward lift as it blows */
     }
 }
+/* ======================================================== */
+/* --- NEW: INTERACTIVE HAPPY BOUNCE ON CLICK (No. 4) ---   */
+/* ======================================================== */
+
+/* Makes the mouse cursor turn into a hand so users know he is clickable! */
+.character-base {
+    cursor: pointer;
+}
+
+/* This class gets added temporarily when clicked */
+.character-base.bounce {
+    animation: happyBounce 0.5s ease;
+}
+
+/* A cute, springy jump with a tiny squash-and-stretch effect */
+@keyframes happyBounce {
+    0%   { transform: translateY(0) scale(1, 1); }
+    15%  { transform: translateY(0) scale(1.06, 0.94); } /* Little crouch down */
+    45%  { transform: translateY(-30px) scale(0.95, 1.05); } /* Jump up and stretch */
+    75%  { transform: translateY(0) scale(1.04, 0.96); } /* Land and squash */
+    100% { transform: translateY(0) scale(1, 1); } /* Back to normal */
+}
