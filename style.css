@@ -290,26 +290,21 @@ body {
 /* =================================================================== */
 
 @media (max-width: 768px) {
-    /* Hide decorative side art on tiny phone screens */
-    .side-decor-img {
-        display: none !important;
-    }
-
-    /* Force the body to allow vertical stacking without clipping */
+    /* 1. Prevent horizontal page overflow */
     body {
         overflow-x: hidden;
+        padding: 10px;
     }
 
-    /* Stack the game containers vertically */
+    /* 2. Stack the game elements vertically */
     .game-container {
-        display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         width: 100% !important;
         gap: 15px !important;
     }
 
-    /* Force BOTH button panels to display visibly as horizontal rows */
+    /* 3. Force both button panels to appear and wrap horizontally */
     .button-panel {
         display: flex !important;
         flex-direction: row !important;
@@ -319,7 +314,7 @@ body {
         gap: 10px !important;
     }
 
-    /* Center stage sizing for mobile */
+    /* 4. Shrink the giant 650px stage so it fits your phone screen */
     .character-scene {
         width: 320px !important;
         height: 320px !important;
@@ -331,13 +326,8 @@ body {
         height: 320px !important;
     }
 
-    /* Fix popup menus so they appear centered on mobile screens */
-    .options-menu {
-        position: fixed !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        z-index: 2000 !important;
-        background: #fff !important;
+    /* 5. Hide side decorations on mobile */
+    .side-decor-img {
+        display: none !important;
     }
 }
