@@ -44,8 +44,8 @@ JAYAAA JAYAAA JAYAAAA 🎉🎉🎉🎉`,
 const playlist = [
     { title: "🎵 Silk & Cinder", file: "track1.mp3" },
     { title: "🎵 Meshrabiya", file: "track2.mp3" },
-    { title: "🎵 Sirocco Nostalgia", file: "track3.mp3" }
-    { title: "🎵 Red Sand", file: "track4.mp3" }
+    { title: "🎵 Sirocco Nostalgia", file: "track3.mp3" },
+    { title: "🎵 Red Sand", file: "track4.mp3" },
  { title: "🎵 Wadi Walk", file: "track5.mp3" }
 ];
 
