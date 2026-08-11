@@ -363,3 +363,67 @@ body {
     75%  { transform: translateY(0) scale(1.04, 0.96); } /* Land and squash */
     100% { transform: translateY(0) scale(1, 1); } /* Back to normal */
 }
+/* ======================================================== */
+/* --- NEW: MINI MUSIC PLAYER WIDGET ---                    */
+/* ======================================================== */
+
+.music-player-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 20;
+}
+
+.music-pill {
+    background-color: #fffaf0;
+    border: 3px solid #333;
+    border-radius: 30px;
+    padding: 8px 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    max-width: 90vw;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.track-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    min-width: 120px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.music-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.music-btn {
+    background-color: #ffe4e1;
+    border: 2px solid #333;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.music-btn:hover {
+    background-color: #ffb6c1;
+}
+
+.music-btn:active {
+    transform: scale(0.90);
+}
