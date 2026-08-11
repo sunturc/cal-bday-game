@@ -14,7 +14,7 @@ const birthdayLetters = {
 
 I wish nothing but the best for you. May it always be sunshine after the rain, and may you always find the reason to smile no matter what happens. Never give up on the things you enjoy and the things that make your life worthwhile. Never let anything dampen you, or dim the brilliance that is you. I wish you the very best, many gifts, a bounty of happiness and so many more chances to enjoy life. You are so loved, always remember that.
 
-Happy birthday dearest, I wish you have a beautiful day today.`
+Happy birthday dearest, I wish you have a beautiful day today.`,
 "Andini SA": `Selamat ulang, tahuuun~
 Selamat ulang, tahuuun~
 Selamat ulang tahun, Tiara~
