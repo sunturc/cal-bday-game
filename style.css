@@ -290,61 +290,54 @@ body {
 /* =================================================================== */
 
 @media (max-width: 768px) {
+    /* Hide decorative side art on tiny phone screens */
     .side-decor-img {
-        display: none;
+        display: none !important;
     }
 
-    /* Force the game container into a clean vertical stack */
+    /* Force the body to allow vertical stacking without clipping */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Stack the game containers vertically */
     .game-container {
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        width: 100%;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 15px !important;
     }
 
-    /* Force both button panels to appear visibly as horizontal wrapping rows */
+    /* Force BOTH button panels to display visibly as horizontal rows */
     .button-panel {
-        display: flex !important; /* 'Important' forces it to override anything hiding it */
-        flex-direction: row;
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        width: 100%;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        width: 100% !important;
+        gap: 10px !important;
     }
 
+    /* Center stage sizing for mobile */
     .character-scene {
-        width: 320px;
-        height: 320px;
-        border-width: 4px;
+        width: 320px !important;
+        height: 320px !important;
+        flex-shrink: 0 !important;
     }
     .character-base,
     .clothing {
-        width: 320px;
-        height: 320px;
+        width: 320px !important;
+        height: 320px !important;
     }
 
-    .category-btn {
-        width: 50px;
-        height: 50px;
-    }
-    .category-btn img {
-        width: 44px;
-        height: 44px;
-    }
-
+    /* Fix popup menus so they appear centered on mobile screens */
     .options-menu {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2000;
-        background: #fff;
-        border: 3px solid #333;
-    }
-
-    .modal-card {
-        width: 90%;
-        padding: 15px;
-  
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: 2000 !important;
+        background: #fff !important;
     }
 }
