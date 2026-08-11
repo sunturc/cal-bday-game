@@ -290,21 +290,28 @@ body {
 /* =================================================================== */
 
 @media (max-width: 768px) {
-    /* 1. Prevent horizontal page overflow */
-    body {
-        overflow-x: hidden;
+    /* 1. Prevent the page from scrolling left or right */
+    html, body {
+        width: 100%;
+        overflow-x: hidden !important;
+        margin: 0;
         padding: 10px;
+        box-sizing: border-box;
     }
 
-    /* 2. Stack the game elements vertically */
+    /* 2. Stack everything cleanly in the center */
     .game-container {
+        display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
+        justify-content: center !important;
         width: 100% !important;
+        max-width: 100% !important;
         gap: 15px !important;
+        margin: 0 auto !important;
     }
 
-    /* 3. Force both button panels to appear and wrap horizontally */
+    /* 3. Force BOTH button panels to wrap and display below/above the stage */
     .button-panel {
         display: flex !important;
         flex-direction: row !important;
@@ -314,10 +321,11 @@ body {
         gap: 10px !important;
     }
 
-    /* 4. Shrink the giant 650px stage so it fits your phone screen */
+    /* 4. Shrink the stage from 650px down to 320px so it fits phones */
     .character-scene {
         width: 320px !important;
         height: 320px !important;
+        max-width: 100% !important;
         flex-shrink: 0 !important;
     }
     .character-base,
