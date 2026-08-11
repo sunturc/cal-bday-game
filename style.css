@@ -285,3 +285,63 @@ body {
     white-space: pre-wrap; /* Keeps paragraph line breaks */
 }
 }
+/* =================================================================== */
+/* --- MOBILE-FRIENDLY MAGIC (PC version is 100% untouched!) ---       */
+/* =================================================================== */
+
+@media (max-width: 768px) {
+    /* Everything inside here ONLY activates on mobile screens! */
+
+    /* 1. Hide the large decorative side art on phones to save space */
+    .side-decor-img {
+        display: none;
+    }
+
+    /* 2. Tighten the gap between the buttons and the character stage */
+    .game-container {
+        gap: 10px;
+        padding: 0 5px;
+    }
+
+    /* 3. Make the category buttons slightly smaller for touchscreens */
+    .category-btn {
+        width: 48px;
+        height: 48px;
+    }
+    .category-btn img {
+        width: 42px;
+        height: 42px;
+    }
+
+    /* 4. Scale down the character stage and clothing layers proportionally */
+    .character-scene {
+        width: 320px;
+        height: 320px;
+        border-width: 4px;
+    }
+    .character-base,
+    .clothing {
+        width: 320px;
+        height: 320px;
+    }
+
+    /* 5. Ensure popup menus don't float too far away from the buttons */
+    .options-menu {
+        padding: 6px;
+        gap: 3px;
+    }
+    .small-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* 6. Make the Birthday Mailbox modal fit neatly on phone screens */
+    .modal-card {
+        width: 92%;
+        padding: 15px;
+    }
+    .mail-btn {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+}
