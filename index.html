@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Dress-Up Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==================== BACKGROUND MUSIC ==================== -->
+    <audio id="birthdayMusic" loop>
+        <source src="background_music.mp3" type="audio/mpeg">
+    </audio>
+    <!-- ========================================================== -->
+
+    <!-- The game layout container holds 3 columns: Left Panel | Center Stage | Right Panel -->
+    <div class="game-container">
+        
+        <!-- ==================== LEFT PANEL ==================== -->
+        <div class="button-panel">
+            
+            <!-- HAIR -->
+            <div class="category-group">
+                <button id="btn-category-hair" class="category-btn">
+                    <img src="icon-hair.png" alt="Hair">
+                </button>
+                <div id="hair-options" class="options-menu">
+                    <button id="btn-hair-1" class="small-btn">1</button>
+                    <button id="btn-hair-2" class="small-btn">2</button>
+                    <button id="btn-hair-3" class="small-btn">3</button>
+                    <button id="btn-hair-off" class="small-btn off-btn">X</button>
+                </div>
+            </div>
+
+            <!-- SHIRTS -->
+            <div class="category-group">
+                <button id="btn-category-shirt" class="category-btn">
+                    <img src="icon-shirt.png" alt="Shirts">
+                </button>
+                <div id="shirt-options" class="options-menu">
+                    <button id="btn-shirt-1" class="small-btn">1</button>
+                    <button id="btn-shirt-2" class="small-btn">2</button>
+                    <button id="btn-shirt-3" class="small-btn">3</button>
+                    <button id="btn-shirt-off" class="small-btn off-btn">X</button>
+                </div>
+            </div>
+
+            <!-- PANTS -->
+            <div class="category-group">
+                <button id="btn-category-pants" class="category-btn">
+                    <img src="icon-pants.png" alt="Pants">
+                </button>
+                <div id="pants-options" class="options-menu">
+                    <button id="btn-pants-1" class="small-btn">1</button>
+                    <button id="btn-pants-2" class="small-btn">2</button>
+                    <button id="btn-pants-3" class="small-btn">3</button>
+                    <button id="btn-pants-off" class="small-btn off-btn">X</button>
+                </div>
+            </div>
+
+            <!-- NEW: Left Decorative Art Beneath Buttons -->
+            <img src="header-left.gif" alt="Happy Birthday" class="side-decor-img">
+
+        </div>
+
+        <!-- ==================== CENTER STAGE ==================== -->
+        <div class="center-stage">
+            <div id="scene" class="character-scene">
+                <div class="character-base">
+                    <div id="item-hair" class="clothing"></div>
+                    <div id="item-shirt" class="clothing"></div>
+                    <div id="item-pants" class="clothing"></div>
+                    <div id="item-shoes" class="clothing"></div>
+                    <div id="item-robe" class="clothing"></div>
+                    <div id="item-accessories" class="clothing"></div>
+                </div>
+            </div> 
+        </div>
+
+        <!-- ==================== RIGHT PANEL ==================== -->
+        <div class="button-panel">
+            
+            <!-- ACCESSORIES -->
+            <div class="category-group">
+                <button id="btn-category-accessories" class="category-btn">
+                    <img src="icon-accessories.png" alt="Accessories">
+                </button>
+                <div id="accessories-options" class="options-menu">
+                    <button id="btn-accessories-1" class="small-btn">1</button>
+                    <button id="btn-accessories-2" class="small-btn">2</button>
+                    <button id="btn-accessories-3" class="small-btn">3</button>
+                    <button id="btn-accessories-off" class="small-btn off-btn">X</button>
+                </div>
+            </div>
+
+            <!-- ROBE -->
+            <div class="category-group">
+                <button id="btn-category-robe" class="category-btn">
+                    <img src="icon-robe.png" alt="Robe">
+                </button>
+                <div id="robe-options" class="options-menu">
+                    <button id="btn-robe-1" class="small-btn">1</button>
+                    <button id="btn-robe-2" class="small-btn">2</button>
+                    <button id="btn-robe-3" class="small-btn">3</button>
+                    <button id="btn-robe-off" class="small-btn off-btn">X</button>
+                </div>
+            </div>
+
+            <!-- SHOES -->
+            <div class="category-group">
+                <button id="btn-category-shoes" class="category-btn">
+                    <img src="icon-shoes.png" alt="Shoes">
+                </button>
+                <div id="shoes-options" class="options-menu">
+                    <button id="btn-shoes-1" class="small-btn">1</button>
+                    <button id="btn-shoes-2" class="small-btn">2</button>
+                    <button id="btn-shoes-3" class="small-btn">3</button>
+                    <button id="btn-shoes-off" class="small-btn off-btn">X</button>
+                </div>
+            </div>
+
+            <!-- NEW: Right Decorative Art Beneath Buttons -->
+            <img src="header-right.gif" alt="Happy Birthday" class="side-decor-img">
+
+        </div>
+
+    </div>
+
+    <!-- ==================== MAIL BUTTON ==================== -->
+    <div class="mail-button-container">
+        <button id="open-mail-btn" class="mail-btn">💌 BIRTHDAY WISHES!! PLZ KLIK!!</button>
+    </div>
+
+    <!-- ==================== THE POPUP MAILBOX ==================== -->
+    <div id="mail-modal" class="modal-overlay">
+        <div class="modal-card">
+            <button id="close-mail-btn" class="close-btn">X</button>
+            <h2>🎂 Birthday Messages 🎂</h2>
+            <p class="mail-instruction">Pesan ultah dari teman dan kerabat</p>
+            <div id="sender-list" class="sender-list"></div>
+            <div id="letter-display" class="letter-display">
+                <em>Klik namanya buat baca pesannya...</em>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
