@@ -182,9 +182,9 @@ body {
 }
 
 .mail-btn {
-    background-color: #ff69b4;
+    background-color: #DE756F;
     color: white;
-    border: 3px solid #333;
+    border: 3px solid #884A46;
     padding: 12px 24px;
     font-size: 18px;
     font-weight: bold;
@@ -376,8 +376,8 @@ body {
 }
 
 .music-pill {
-    background-color: #fffaf0;
-    border: 3px solid #333;
+    background-color: #b8c0c9;
+    border: 3px solid #2e3032;
     border-radius: 30px;
     padding: 8px 18px;
     display: flex;
