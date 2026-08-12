@@ -376,8 +376,8 @@ body {
 }
 
 .music-pill {
-    background-color: #b8c0c9;
-    border: 3px solid #2e3032;
+    background-color: #ffcdc8;
+    border: 3px solid #ff9f95;
     border-radius: 30px;
     padding: 8px 18px;
     display: flex;
@@ -408,7 +408,7 @@ body {
 
 .music-btn {
     background-color: #ffe4e1;
-    border: 2px solid #333;
+    border: 2px solid #ff9f95;
     border-radius: 50%;
     width: 34px;
     height: 34px;
